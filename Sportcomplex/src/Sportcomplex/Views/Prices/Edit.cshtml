@@ -1,0 +1,71 @@
+@model Sportcomplex.Models.Price
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<form asp-action="Edit">
+    <div class="form-horizontal">
+        <h4>Price</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="Id" />
+        <div class="form-group">
+            <label asp-for="Eight_work" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Eight_work" class="form-control" />
+                <span asp-validation-for="Eight_work" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Eleven_work" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Eleven_work" class="form-control" />
+                <span asp-validation-for="Eleven_work" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="For_work" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="For_work" class="form-control" />
+                <span asp-validation-for="For_work" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="NameOfSport" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="NameOfSport" class="form-control" />
+                <span asp-validation-for="NameOfSport" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="One_work" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="One_work" class="form-control" />
+                <span asp-validation-for="One_work" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="TimeOfGym" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="TimeOfGym" class="form-control" />
+                <span asp-validation-for="TimeOfGym" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

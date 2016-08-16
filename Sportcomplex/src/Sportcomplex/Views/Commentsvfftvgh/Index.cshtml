@@ -1,0 +1,40 @@
+@model IEnumerable<Sportcomplex.Models.Comment>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Comments</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+@if (User.IsInRole("Admins"))
+            {
+           @foreach (var item in Model)
+            {
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <td>@Html.DisplayNameFor(model => model.Email) </td>
+                            <td> @Html.DisplayFor(modelItem => item.Email)</td>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayNameFor(model => model.Title) </td>
+                            <td> @Html.DisplayFor(modelItem => item.Title)</td>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayNameFor(model => model.Message) </td>
+                            <td> @Html.DisplayFor(modelItem => item.Message)</td>
+                        </tr>
+
+
+           
+                    </tbody>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </table>
+            }
+}

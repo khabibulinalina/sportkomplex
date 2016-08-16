@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Sportcomplex.Models.Price>
+
+            @{
+                ViewData["Title"] = "Price";
+            }
+        <div class="h2">Price</div><br>
+            @if (User.IsInRole("Admins"))
+                {
+                    <p>
+                        <a asp-action="Create">Create New</a>
+                    </p>
+                }
+                <div class="table-responsive">
+                <table class="table">
+                        <thead>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.NameOfSport)
+                                </th>
+                                <th>
+                                   @Html.DisplayNameFor(model => model.TimeOfGym)
+                                </th>
+                                <th>
+                                   @Html.DisplayNameFor(model => model.One_work)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.For_work)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Eight_work)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Eleven_work)
+                                </th>
+                                @if (User.IsInRole("Admins"))
+                                {<th></th>}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                    {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.NameOfSport)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.TimeOfGym)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.One_work)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.For_work)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Eight_work)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Eleven_work)
+                                    </td>
+                                   @if (User.IsInRole("Admins"))
+                                   {<td>
+                                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                                        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                                    </td>}
+                                </tr>
+                                }
+                    </tbody>
+                </table>
+            </div>

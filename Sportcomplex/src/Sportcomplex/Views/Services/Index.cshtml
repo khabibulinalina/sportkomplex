@@ -1,0 +1,75 @@
+﻿@model IEnumerable<Sportcomplex.Models.Service>
+
+@{
+    ViewData["Title"] = "Service";
+    ViewData["Container"] = 1;
+    int i = 1;
+}
+<div class="main">
+    <div class="dir">
+        <h2 class="h2">Service</h2>
+        @if (User.IsInRole("Admins"))
+            {
+            <p>
+                <a asp-action="Create">Create New</a>
+            </p>
+        }
+        @*<div class="row one">
+                <div class="col-md-6 col-lg-6 col-xs-12">
+                    @Html.DisplayNameFor(model => model.ServiceImgURL)
+                </div>
+                <div class="col-md-6 col-lg-6 col-xs-12">
+                    @Html.DisplayNameFor(model => model.Description)
+                </div>
+            </div>*@
+        @foreach (var item in Model)
+        {
+            @if (i % 2 !=0)
+                {
+                    <div class="row one">
+                        <div class="col-md-6 col-lg-6 col-xs-12">
+                            <img src="@item.ServiceImgURL" />
+                        </div>
+                        <div class="col-md-6 col-lg-6 col-xs-12">
+                            <h2 class="h2"> @Html.DisplayFor(modelItem => item.Title)</h2>
+                            <p> @Html.DisplayFor(modelItem => item.Description)<br /><br />
+                            <a asp-action="Details" asp-route-id="@item.Id">Details</a>
+                            </p>
+                        </div>
+                   </div>
+                    @if (User.IsInRole("Admins"))
+                    {
+                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                        @*<a asp-action="Details" asp-route-id="@item.Id">Details</a>*@
+                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    }
+                         
+                i++;
+            }
+            else
+            {
+                    <div class="row two">
+                        <div class="col-md-6 col-lg-6 col-xs-12">
+                            <h2 class="h2"> @Html.DisplayFor(modelItem => item.Title)</h2>
+                            <p> @Html.DisplayFor(modelItem => item.Description)<br /><br />
+                             <a asp-action="Details" asp-route-id="@item.Id">Details</a>
+                            </p>
+                        </div>
+                        <div class="col-md-6 col-lg-6 col-xs-12">
+                            <img src="@item.ServiceImgURL" />
+                        </div>
+                    </div>
+                            @if (User.IsInRole("Admins"))
+                            {
+                                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                                @*<a asp-action="Details" asp-route-id="@item.Id">Details</a>*@
+                                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                            }
+                               
+                i++;
+            }
+        }
+       </div>
+</div>
+
+

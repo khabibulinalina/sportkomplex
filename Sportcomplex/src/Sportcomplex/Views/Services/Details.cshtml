@@ -1,0 +1,33 @@
+@model Sportcomplex.Models.Service
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Service</h4>
+ 
+       
+        <div class="well">
+            <div class="h3">
+                @Html.DisplayFor(model => model.Title)
+            </div> 
+            <span class="lead">@Model.Description</span> <br /><br />
+            @using (Html.BeginForm("AddCart", "Cart"))
+            {
+                <div class="pull-right">
+                    @Html.HiddenFor(x => x.Id)
+                    @*@Html.Hidden("returnUrl", Request.Url.PathAndQuery)*@
+                    <input type="submit" class="btn btn-success" value="ADD TO CART" />
+                </div>
+            }
+            
+            <img src="@Html.DisplayFor(model => model.ServiceImgURL)"> <img />
+        </div>
+    </div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

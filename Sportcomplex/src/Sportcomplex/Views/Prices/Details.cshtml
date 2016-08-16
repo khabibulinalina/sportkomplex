@@ -1,0 +1,54 @@
+@model Sportcomplex.Models.Price
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Price</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Eight_work)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Eight_work)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Eleven_work)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Eleven_work)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.For_work)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.For_work)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NameOfSport)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NameOfSport)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.One_work)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.One_work)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TimeOfGym)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TimeOfGym)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

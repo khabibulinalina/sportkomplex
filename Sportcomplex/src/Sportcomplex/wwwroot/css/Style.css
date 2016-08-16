@@ -1,0 +1,67 @@
+﻿body{
+   margin-top:0px;
+   padding-top:0px;
+}
+.h2{
+    color:dimgrey;
+    padding: 0px 20px;
+} 
+.dir .one .col-md-6{
+    padding: 0;
+    margin: 0;
+}
+.dir .two .col-md-6{
+    padding: 0;
+    margin: 0;
+}
+.dir .one img{
+    padding: 0;
+    margin: 0;
+    width:100%;
+    max-width:100%;
+}
+.dir .two img{
+  float:right;
+    padding: 0;
+    margin: 0;
+    width:100%;
+    max-width:100%;
+}
+.dir .one{
+    background-color: #f9f9f9;
+    color:#969696;
+}
+.dir .two{
+    background: #ffffff;
+    color:#969696;
+}
+
+p{
+    text-align: justify;
+     padding-right:50px;
+    padding-left:50px;
+    padding-top:50px;
+}
+.dir .two .h2{
+     text-align:center;
+}
+.dir .one .h2{
+     text-align:center;
+}
+
+.contact .row .col-md-12 #map{
+    width:100%;
+    height: 500px;
+}
+.contact .row .col-md-12{
+ margin:0px;
+    padding:0px;
+}
+.contact .row address{
+    padding-top:20px;
+    text-align: center;
+    font-size: large;
+}
+.cart{
+    padding-left:300px;
+}

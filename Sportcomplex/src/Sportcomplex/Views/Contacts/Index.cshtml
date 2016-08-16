@@ -1,0 +1,74 @@
+@using System.Globalization
+@model IEnumerable<Sportcomplex.Models.Contact>
+
+@{
+    ViewData["Title"] = "Index";
+    ViewData["Container"] = 1;
+}
+   
+
+<h2>Contact</h2>
+@*@if (User.IsInRole("Admins"))
+{
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>}*@
+
+@foreach (var item in Model)
+{   <div class="contact">
+   
+        <div class="row">
+            <div class="col-md-12">
+                <div id="map"></div>
+                    @*<script> ------ÃŒ∆ÕŒ «¿Ã≈Õ»“‹ Õ¿ GOOGLE MAPS
+                      function initMap() {
+                            var mapDiv = document.getElementById('map');
+                            var map = new google.maps.Map(mapDiv, {
+                            center: {lat: @item.x.ToString("F").Replace(',', '.'), lng: @item.y.ToString("F").Replace(',', '.')},
+                            zoom: 16
+                        });
+                      }
+                  </script>
+                    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"
+                            async defer></script>*@
+
+               @*---------»—œŒÀ‹«”ﬁ 2GIS---------------------------------------*@
+
+                <script type="text/javascript">
+                    var map;
+                    DG.then(function () {
+                        map = DG.map('map', {
+                            center: [@item.x.ToString(CultureInfo.InvariantCulture),@item.y.ToString(CultureInfo.InvariantCulture)],
+                            zoom: 20
+                        });
+                        DG.marker([@item.x.ToString(CultureInfo.InvariantCulture),@item.y.ToString(CultureInfo.InvariantCulture)]).addTo(map).bindPopup('Sportcomplex TSU');
+                    });
+        </script>
+             
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <address>
+                    <strong>Address:</strong><br>
+                    @Html.DisplayFor(modelItem => item.address)
+                </address>
+            </div>
+        </div>
+  
+        @if (User.IsInRole("Admins"))
+                {
+            <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+            @*<a asp-action="Details" asp-route-id="@item.Id">Details</a>
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>*@
+        }
+    </div>  }
+  
+
+
+
+
+
+
+
+

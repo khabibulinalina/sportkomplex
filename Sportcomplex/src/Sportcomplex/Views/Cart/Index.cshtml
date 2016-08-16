@@ -1,0 +1,36 @@
+@model Sportcomplex.Models.Cart
+
+<h3>Basket</h3>
+
+<div class="row one">
+    <div class="col-md-4 col-lg-4 col-xs-4">
+        <h2>Image</h2>
+    </div>
+    <div class="col-md-4 col-lg-4 col-xs-4">
+        <h2>Service</h2>
+    </div>
+    <div class="col-md-4 col-lg-4 col-xs-4">
+        <h2> Quantity</h2>
+    </div>
+</div>
+
+@foreach (var line in Model.Lines)
+{
+    <div class="row one">
+        <div class="col-md-4 col-lg-4 col-xs-4">
+            <img src="@line.Service.ServiceImgURL" height="100" width="150"><img />
+        </div>
+        <div class="col-md-4 col-lg-4 col-xs-4">
+            <p>@line.Service.Title</p>
+        </div>
+        <div class="col-md-4 col-lg-4 col-xs-4">
+            <p> @line.Quantity</p>
+
+        </div>
+    </div>
+        @*<a asp-action="Delete" asp-route-id="@line.Id">Delete</a>*@
+    <br />
+}
+
+                  
+         
